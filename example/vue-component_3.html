@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>component_父子关系</title>
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+</head>
+<body>
+<div >
+
+</div>
+<h1>component_父子关系</h1>
+<hr/>
+<div id="ppa">
+    <panda></panda>
+</div>
+<script type="text/javascript">
+    // Vue.component('panda',{
+    //     template:`<div style="color:pink;">panda come from {{here}}</div>`,
+    //     props:['here']
+    // })
+    // var vue = new Vue({
+    //     el:"#app",
+    //     data:{
+    //
+    //     }
+    // });
+    var city = {
+        template: `<p>shichuan of China</p>`
+    };
+    var panda ={
+        template:`<div>
+            <p >panda come from China</p>
+            <city></city>
+            </div>`,
+        components: {
+            "city":city
+        }
+    };
+    var ppa = new Vue({
+        el:"#ppa",
+        data:{
+            message:"China"
+        },components:{
+            "panda":panda
+        }
+    });
+
+</script>
+</body>
+</html>

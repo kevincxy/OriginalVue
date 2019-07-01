@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>v-if</title>
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+</head>
+<body>
+ <h1>vue-set实例</h1>
+<hr/>
+<div id="app">
+    <p>{{count}}</p>
+    <ul>
+        <li v-for="aa in arr">{{aa}}</li>
+    </ul>
+</div>
+<button onclick="add()">add</button>
+<script type="text/javascript">
+    function add () {
+        //使用vueSet修改值
+        // Vue.set(outParam,'count',3);
+        // Vue.set(outParam.arr,1,'ppp');
+        //使用vue对象修改
+        // appObject.count++;
+        //使用外部对象修改
+        // outParam.count++;
+        appObject.arr[1]='dd';
+    }
+    var outParam = {
+        count:1,
+        arr:['aaa','bbb','ccc']
+    }
+
+    var appObject = new Vue({
+        el:"#app",
+        data:outParam
+    })
+</script>
+</body>
+</html>

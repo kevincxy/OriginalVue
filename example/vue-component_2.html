@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>component</title>
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+</head>
+<body>
+<div >
+
+</div>
+<h1>component</h1>
+<hr/>
+<div id="app">
+    <panda here="China"></panda>
+    <kevin></kevin>
+</div>
+<hr/>
+<div id="ppa">
+    <panda v-bind:here="message"></panda>
+    <kevin></kevin>
+</div>
+<script type="text/javascript">
+    // Vue.component('panda',{
+    //     template:`<div style="color:pink;">panda come from {{here}}</div>`,
+    //     props:['here']
+    // })
+    var vue = new Vue({
+        el:"#app",
+        data:{
+
+        }
+    });
+    var ppa = new Vue({
+        el:"#ppa",
+        data:{
+            message:"China"
+        },components:{
+            "panda":{
+                template:`<div style="color:pink;">panda come from {{here}}</div>`,
+                props:["here"]
+            }
+        }
+    });
+
+</script>
+</body>
+</html>

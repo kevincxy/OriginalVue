@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue-extend实例</title>
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+</head>
+<body>
+<div >
+
+</div>
+<div id="app">
+    <h1>vue-extend实例</h1>
+    <br/>
+    <author></author>
+<!--    <div id="speak">-->
+<!--        <ol>-->
+<!--            <li v-for="n in 10">慕容田雨</li><br>-->
+
+<!--        </ol>-->
+<!--    </div>-->
+<!--    <div id="author"></div>-->
+    <author></author>
+</div>
+
+
+<script type="text/javascript">
+var vue = new Vue({
+    el:"#speak",
+    data:{
+        num:4
+    }
+})
+ var authorDemo = Vue.extend({
+     template:"<p><a :href='authorUrl'>{{authorName}}</a></p>",
+     data:function () {
+         return{
+             authorUrl:"http://www.nows.fun/",
+             authorName:"慕容田雨"
+         }
+     }
+ });
+ new authorDemo().$mount('author');
+ // new authorDemo().$mount('#author');
+
+</script>
+</body>
+</html>

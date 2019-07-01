@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>component</title>
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+</head>
+<body>
+<div >
+
+</div>
+<h1>component</h1>
+<hr/>
+<div id="app">
+    <murong></murong>
+    <kevin></kevin>
+</div>
+<hr/>
+<div id="ppa">
+    <murong></murong>
+    <kevin></kevin>
+</div>
+<script type="text/javascript">
+    Vue.component('murong',{
+        template:`<div style="color:pink;">全局的murong标签</div>`
+    })
+    var vue = new Vue({
+        el:"#app",
+        data:{
+
+        }
+    });
+    var ppa = new Vue({
+        el:"#ppa",
+        data:{
+        },components:{
+            "kevin":{
+                template:`<div style="color:blue;">局部的murong标签</div>`
+            }
+        }
+    });
+
+</script>
+</body>
+</html>
