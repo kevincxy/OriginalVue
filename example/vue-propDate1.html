@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue生命周期</title>
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+</head>
+<body>
+<div >
+
+</div>
+<h1>vue生命周期</h1>
+<hr/>
+<p class="header"></p>
+<script type="text/javascript">
+
+var header_a = Vue.extend({
+    template:`<p>{{mes}}-{{a}}</p>`,
+    data:function () {
+        return {
+            mes: '我们在一起就是向往的生活！'
+
+        }
+    },
+    props:['a']
+})
+    new header_a({propsData:{a:12}}).$mount('.header');
+</script>
+</body>
+</html>

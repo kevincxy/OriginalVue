@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue生命周期</title>
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+</head>
+<body>
+<div >
+
+</div>
+<h1>vue生命周期</h1>
+<hr/>
+<div id="app">
+    <p>{{newPrice}}</p>
+    <ul>
+        <li v-for="item in newsList">{{item.title}}-{{item.date}}</li>
+    </ul>
+</div>
+<script type="text/javascript">
+    var  newsList = [
+        {title:"北上广深平均工资大PK：北京领跑，广深首超10万元",date:"2019-7-1"},
+        {title:"农业农村部：国家正积极推进非洲猪瘟疫苗研发",date:"2019-7-2"},
+        {title:"红通人员贪污2亿逃到瑞典被释放 驻瑞典大使回应",date:"2019-7-3"},
+        {title:"7日17时21分小暑:热浪滚滚'三伏'启 防暑降温纳清凉",date:"2019-7-4"},
+        {title:"租房便宜了 房租连续两季度下降！你的租金减少没？",date:"2019-7-5"},
+    ];
+
+    var vue = new Vue({
+        el:"#app",
+        data:{
+            price:100,
+            newsList:newsList
+        },
+        computed:{
+            newPrice:function () {
+                return this.price = "$"+this.price+"元"
+            },
+            reverseList:function () {
+                return this.newsList.reverse();
+            }
+        }
+    });
+
+</script>
+</body>
+</html>
