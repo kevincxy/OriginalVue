@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue-methods</title>
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+</head>
+<body>
+<div >
+
+</div>
+<h1>vue-methods</h1>
+<hr/>
+<div id="app">
+    <p>{{num}}</p>
+  <button @click="add(2)">add</button>
+    <btn @click.native="add(2)"></btn>
+</div>
+<button onclick="app.add(2)">外部调用</button>
+<script type="text/javascript">
+    var btnDD = {
+        template:`<button>自定义add</button>`
+    };
+    // var btn = Vue.extend({
+    //     templete:'<button>自定义add</button>'
+    // })
+    var app = new Vue({
+        el:"#app",
+        data:{
+            num:1,
+            // btn:btn
+        },
+        components:{
+            "btn":btnDD
+        },
+        methods:{
+            add:function (addValue) {
+                if(addValue != '') {
+                    this.num += addValue;
+                }
+
+            }
+        }
+    });
+    // new btn().$mount("#app");
+</script>
+</body>
+</html>
