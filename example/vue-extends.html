@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>extends继承选项</title>
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+</head>
+<body>
+<div >
+
+</div>
+<h1>extends继承选项</h1>
+<hr/>
+<div id="app">
+    <p>@{num}</p>
+    <p><button @click="add()">add</button></p>
+</div>
+<script type="text/javascript">
+    var bbb = {
+        created:function(){
+            console.log("我是被扩展出来的created！");
+        },
+        updated:function () {
+            console.log("我是被扩展出来的updated！");
+        },
+        methods:{
+            add:function () {
+                console.log("我是被扩展出来的方法！");
+            }
+        }
+    }
+
+    var app = new Vue({
+        el:"#app",
+        data:{
+            num:1
+        },methods:{
+            add:function () {
+                console.log("我是原生方法")
+                this.num++;
+            }
+        },
+        created:function(){
+            console.log("我是原生的created！");
+        },
+        updated:function () {
+            console.log("我是原声的updated");
+        },
+        extends:bbb,
+        delimiters:['@{','}']
+
+    });
+
+
+</script>
+</body>
+</html>
