@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue-example</title>
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+    <script type="text/javascript" src="../assets/js/jquery-3.4.1.min.js"></script>
+</head>
+<body>
+<div >
+
+</div>
+<div id="app">
+    <h1 id="pse">{{message}}</h1>
+    <div v-if="isLogin">你好，慕容田雨 </div>
+
+</div>
+<script type="text/javascript">
+    var vue = new Vue({
+        el:"#app",
+        data:{
+            message:"丹增尼玛",
+            isLogin:true
+        },
+        //使用jquery操作元素
+        mounted:function () {
+            $("#pse").html("全村的希望~");
+        },
+        methods:{
+            add:function () {
+                console.log("调用了add方法！");
+            },
+            bragging:function () {
+                console.log("我昨天跟陈妍希吃了个饭！");
+                alert("我昨天跟陈妍希吃了个饭！");
+            }
+        }
+    })
+    vue.bragging();
+</script>
+</body>
+</html>
