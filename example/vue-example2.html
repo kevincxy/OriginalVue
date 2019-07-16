@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>vue-实例</title>
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+</head>
+<body>
+<div >
+    vue-实例
+</div>
+<hr/>
+<div id="app"></div>
+<button onclick="destroy()">销毁</button>
+<button onclick="reload()">刷新</button>
+<button onclick="tick()">更新数据</button>
+<script type="text/javascript">
+  var jsshow = Vue.extend({
+      template:`<p>{{laser}}</p>`,
+      data:function () {
+          return {
+              laser:'激光炮，发射'
+          }
+      },
+      mounted:function () {
+        console.log("激光炮已经创建完毕！")
+      },
+      destoryed:function () {
+          console.log("激光炮已经被销毁！")
+      },
+      updated:function () {
+          console.log("激光炮已经被修改！")
+      }
+  });
+  var vm = new jsshow().$mount("#app");
+
+ function destroy() {
+     //todo
+     vm.$destroy();//为什么不生效呢
+ }
+  function reload() {
+      vm.$forceUpdate();
+  }
+  function tick() {
+      vm.laser="冲冲冲";
+      vm.$nextTick(function () {
+          console.log("laser内容被修改了！");
+      });
+  }
+</script>
+</body>
+</html>
