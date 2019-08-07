@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>filter</title>
+    <script type="text/javascript" src="../assets/js/vue.js"></script>
+</head>
+<body>
+<div >
+
+</div>
+<h1>vue生命周期</h1>
+<hr/>
+<div id="app">
+    <!--涨-->
+    <p>{{msg | msgFormat('疯狂','+1')|test()}}</p>
+
+</div>
+<script type="text/javascript">
+    Vue.filter('msgFormat',function (msg,arg,arg2) {
+       return  msg.replace(/单纯/g,arg+arg2);
+    })
+    Vue.filter('test',function (msg) {
+        return msg+"123";
+    })
+    var vue = new Vue({
+       el:"#app",
+        data:{
+           msg:"曾经的我也是一个单纯的少年，单纯的我，傻傻的问，谁是世界上最单纯的男人？"
+        }
+    });
+
+</script>
+</body>
+</html>
